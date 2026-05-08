@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kursach.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace kursach
     {
         static void Main(string[] args)
         {
+            Exhibit picture = new Picture("Автор", "Країна", 2024, 100, 200);
+            Console.WriteLine(picture);
         }
     }
 }
