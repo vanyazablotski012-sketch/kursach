@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kursach.classes
 {
-    internal class picture
+    public class picture
     {
     }
 }
