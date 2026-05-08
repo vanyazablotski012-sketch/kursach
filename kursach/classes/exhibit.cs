@@ -43,7 +43,7 @@ namespace kursach.classes
                 if (value != 0)
                     year = value;
                 else
-                    Console.WriteLine("0 року не існує");
+                    Console.WriteLine("0 року не існує  ");
             }
         }
 

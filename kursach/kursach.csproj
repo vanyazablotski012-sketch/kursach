@@ -44,11 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\exhibit.cs" />
-    <Compile Include="classes\householditem.cs" />
+    <Compile Include="classes\Archaeological exhibit.cs" />
     <Compile Include="classes\picture.cs" />
     <Compile Include="classes\room.cs" />
     <Compile Include="classes\sculpture.cs" />
-    <Compile Include="classes\technique.cs" />
+    <Compile Include="classes\Scientific instrument.cs" />
     <Compile Include="classes\volumeexhibit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
