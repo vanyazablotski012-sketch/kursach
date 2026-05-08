@@ -41,5 +41,10 @@ namespace kursach.classes
         {
             return $"Картина: автор = {Author}, країна = {Country}, рік = {Year}, висота = {Height}, ширина = {Width}";
         }
+        public bool FitsInRoom(Room room)
+        {
+            return Width <= room.Width &&
+                   Height <= room.Height;
+        }
     }
 }

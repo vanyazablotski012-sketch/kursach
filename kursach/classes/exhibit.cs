@@ -7,10 +7,10 @@ namespace kursach.classes
         private string author;
         private string country;
         private int year;
-    
-    
-    
-    public Exhibit(string author, string country, int year)
+
+
+
+        public Exhibit(string author, string country, int year)
         {
             Author = author;
             Country = country;
@@ -54,5 +54,5 @@ namespace kursach.classes
             else
                 Console.WriteLine($"{-Year} р. до н.е.");
         }
-    }
+    } 
 }

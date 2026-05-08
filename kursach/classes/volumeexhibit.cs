@@ -48,5 +48,11 @@ namespace kursach.classes
         {
             return $"Об'ємний експонат: автор = {Author}, країна = {Country}, рік = {Year}, ширина = {Width}, довжина = {Length}, висота = {Height}";
         }
+        public bool FitsInRoom(Room room)
+        {
+            return Width <= room.Width &&
+                   Length <= room.Length &&
+                   Height <= room.Height;
+        }
     }
 }
