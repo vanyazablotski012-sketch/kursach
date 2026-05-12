@@ -4,17 +4,29 @@ namespace kursach.classes
 {
     public class Exhibit
     {
+        private string name;
         private string author;
         private string country;
         private int year;
 
 
 
-        public Exhibit(string author, string country, int year)
+        public Exhibit(string name, string author, string country, int year)
         {
+            Name = name;
             Author = author;
             Country = country;
             Year = year;
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("Назва не може бути пустою.");
+                name = value;
+            }
         }
         public string Author
         {

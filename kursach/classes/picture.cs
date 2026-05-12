@@ -11,7 +11,7 @@ namespace kursach.classes
         private int height;
         private int width;
 
-        public Picture(string author, string country, int year, int height, int width) : base(author, country, year)
+        public Picture(string name, string author, string country, int year, int height, int width) : base(name, author, country, year)
         {
             Height = height;
             Width = width;
@@ -39,7 +39,7 @@ namespace kursach.classes
         }
          public override string ToString()
         {
-            return $"Картина: автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, висота = {Height}, ширина = {Width}";
+            return $"Картина: назва = {Name}, автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, висота = {Height}, ширина = {Width}";
         }
         public bool FitsInRoom(Room room)
         {

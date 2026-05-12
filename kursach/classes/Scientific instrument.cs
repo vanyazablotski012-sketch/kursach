@@ -8,12 +8,12 @@ namespace kursach.classes
 {
     public class ScientificInstrument : VolumeExhibit
     {
-        public ScientificInstrument(string author, string country, int year, double width, double length, double height) : base(author, country, year, width, length, height)
+        public ScientificInstrument(string name, string author, string country, int year, double width, double length, double height) : base(name, author, country, year, width, length, height)
         {
         }
         public override string ToString()
         {
-            return $"Науковий інструмент: автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, ширина = {Width}, довжина = {Length}, висота = {Height}";
+            return $"Науковий інструмент: назва = {Name}, автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, ширина = {Width}, довжина = {Length}, висота = {Height}";
         }
     }
 }

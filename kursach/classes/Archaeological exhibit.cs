@@ -8,12 +8,12 @@ namespace kursach.classes
 {
     public class ArchaeologicalExhibit : VolumeExhibit
     {
-        public ArchaeologicalExhibit(string author, string country, int year, int width, int length, int height) : base(author, country, year, width, length, height)
+        public ArchaeologicalExhibit(string name, string author, string country, int year, int width, int length, int height) : base(name, author, country, year, width, length, height)
         {
         }
          public override string ToString()
         {
-            return $"Археологічний експонат: автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, ширина = {Width}, довжина = {Length}, висота = {Height}";
+            return $"Археологічний експонат: назва = {Name}, автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, ширина = {Width}, довжина = {Length}, висота = {Height}";
         }
     }
 }
