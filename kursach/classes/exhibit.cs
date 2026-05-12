@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.AccessControl;
 
 namespace kursach.classes
 {
@@ -49,13 +50,13 @@ namespace kursach.classes
         }
         public int Year
         {
-            get => year;
+            get { return year; }
             set
             {
                 if (value != 0)
                     year = value;
                 else
-                    Console.WriteLine("0 року не існує  ");
+                   throw new ArgumentException("Рік не може бути нулем.");
             }
         }
 
