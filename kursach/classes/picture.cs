@@ -39,7 +39,7 @@ namespace kursach.classes
         }
          public override string ToString()
         {
-            return $"Картина: автор = {Author}, країна = {Country}, рік = {Year}, висота = {Height}, ширина = {Width}";
+            return $"Картина: автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, висота = {Height}, ширина = {Width}";
         }
         public bool FitsInRoom(Room room)
         {

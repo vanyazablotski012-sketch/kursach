@@ -47,12 +47,12 @@ namespace kursach.classes
             }
         }
 
-        public void ShowYear()
+        public string ShowYear(int currentYear)
         {
-            if (Year > 0)
-                Console.WriteLine($"{Year} р. н.е.");
+            if (currentYear > 0)
+                return $"{currentYear} р. н.е.";
             else
-                Console.WriteLine($"{-Year} р. до н.е.");
+                return $"{-currentYear} р. до н.е.";
         }
     } 
 }

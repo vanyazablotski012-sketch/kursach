@@ -13,7 +13,7 @@ namespace kursach.classes
         }
          public override string ToString()
         {
-            return $"Археологічний експонат: автор = {Author}, країна = {Country}, рік = {Year}, ширина = {Width}, довжина = {Length}, висота = {Height}";
+            return $"Археологічний експонат: автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, ширина = {Width}, довжина = {Length}, висота = {Height}";
         }
     }
 }

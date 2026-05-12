@@ -8,16 +8,16 @@ namespace kursach.classes
 {
     public class VolumeExhibit : Exhibit
     {
-        private int width;
-        private int length;
-        private int height;
-        public VolumeExhibit(string author, string country, int year, int width, int length, int height) : base(author, country, year)
+        private double width;
+        private double length;
+        private double height;
+        public VolumeExhibit(string author, string country, int year, double width, double length, double height) : base(author, country, year)
         {
             Width = width;
             Length = length;
             Height = height;
         }
-        public int Width
+        public double Width
         {
             get { return width; }
             set
@@ -26,7 +26,7 @@ namespace kursach.classes
                 width = value;
             }
         }
-        public int Length
+        public double Length
         {
             get { return length; }
             set
@@ -35,7 +35,7 @@ namespace kursach.classes
                 length = value;
             }
         }
-        public int Height
+        public double Height
         {
             get { return height; }
             set
@@ -46,7 +46,7 @@ namespace kursach.classes
         }
          public override string ToString()
         {
-            return $"Об'ємний експонат: автор = {Author}, країна = {Country}, рік = {Year}, ширина = {Width}, довжина = {Length}, висота = {Height}";
+            return $"Об'ємний експонат: автор = {Author}, країна = {Country}, рік = {ShowYear(Year)}, ширина = {Width}, довжина = {Length}, висота = {Height}";
         }
         public bool FitsInRoom(Room room)
         {
