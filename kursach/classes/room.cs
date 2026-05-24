@@ -1,4 +1,6 @@
-﻿using System;
+﻿using kursach.classes;
+using System;
+using System.Collections.Generic;
 
 public class Room
 {
@@ -6,6 +8,8 @@ public class Room
     private int length;
     private int height;
     private int usefulWallArea;
+    private double volume;
+    public List<Exhibit> ExhibitList { get; set; } = new List<Exhibit>();
 
 
     public Room(int width, int length, int height, int usefulWallArea)
@@ -47,7 +51,26 @@ public class Room
             usefulWallArea = value;
         }
     }
+    public double Volume
+    {
+        get { return volume; }
+        set
+        {
+            volume = Width * Length * Height;
+        }
+    }
 
+    public bool CanAccommodate(double L, double W, double H)
+    {
+        if (volume >= L * W * H
+         && (Width >= W) && (Length >= L) && (Height >= H))
+        {
+          volume -= L * W * H;
+            return true;
+        }
+        return false;
+    }
+    
     public override string ToString()
     {
         return $"Кімната: ширина = {Width}, довжина = {Length}, висота = {Height}, корисна площа стін = {UsefulWallArea}";
@@ -55,3 +78,4 @@ public class Room
   
 
 }
+ 
