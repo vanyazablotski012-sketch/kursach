@@ -1,7 +1,6 @@
 ﻿using kursach.classes;
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Text;
 
 namespace kursach
@@ -14,25 +13,18 @@ namespace kursach
             Console.InputEncoding = Encoding.UTF8;
 
             List<Room> RoomList = new List<Room>();
+            RoomList.Add(new Room(10, 15, 5, 100));
 
-            RoomList.Add(new Room(10, 10, 10, 100));
+            RoomList[0].AddExhibit(new Picture("Мона Ліза", "Леонардо да Вінчі", "Італія", 1503, 53, 77));
 
-
-
-           
-
-
-            RoomList[0].ExhibitList.Add(new Picture("Мона Ліза", "Леонардо да Вінчі", "Італія", 1503, 53, 77));
-            
-
-            RoomList[0].ExhibitList.Add(new ArchaeologicalExhibit("Тиранозавр Рекс", "Тиранозавр", "США", -65000000, 12, 2, 4));
+            RoomList[0].AddExhibit(new ArchaeologicalExhibit("Тиранозавр Рекс", "Тиранозавр", "США", -65000000, 6, 2, 4));
             RoomList[0].CanAccommodate(12, 2, 4);
 
-            RoomList[0].ExhibitList.Add(new Sculpture("Давид", "Мікеланджело", "Італія", 1504, 5, 2, 1));
+            RoomList[0].AddExhibit(new Sculpture("Давид", "Мікеланджело", "Італія", 1504, 5, 2, 1));
             RoomList[0].CanAccommodate(5, 2, 1);
 
 
-            RoomList[0].ExhibitList.Add(new ScientificInstrument("Телескоп Ганса Янссена", "Ганс Янссен", "Нідерланди", 1608, 0.5, 0.15, 0.2));
+            RoomList[0].AddExhibit(new ScientificInstrument("Телескоп Ганса Янссена", "Ганс Янссен", "Нідерланди", 1608, 0.5, 0.15, 0.2));
             RoomList[0].CanAccommodate(0.5, 0.15, 0.2);
 
             while (true)
@@ -44,7 +36,8 @@ namespace kursach
                 Console.WriteLine("3 додати кімнату");
                 Console.WriteLine("4 вийти");
 
-                int choice = Convert.ToInt32(Console.ReadLine());
+
+                if (!int.TryParse(Console.ReadLine(), out int choice))
                 switch (choice)
                 {
                     case 1:
@@ -84,16 +77,12 @@ namespace kursach
                                     Console.WriteLine("Введіть рік створення експонату: ");
                                     int year = int.Parse(Console.ReadLine());
 
-                                    // valid choices are 1..5
                                     if (goodTypeChoosen < 1 || goodTypeChoosen > 5)
                                     {
                                         Console.WriteLine("Невірний тип експонату. Спробуйте ще раз.");
                                         Console.ReadKey();
                                         break;
                                     }
-
-
-
                                     switch (goodTypeChoosen)
                                     {
                                         case 1:
@@ -107,7 +96,7 @@ namespace kursach
                                                 Console.WriteLine("Введіть назву картини: ");
                                                 string name = Console.ReadLine();
 
-                                                Picture newPicture = new Picture(name, author, country, year, height, width);
+                                                RoomList[0].AddExhibit(new Picture(name, author, country, year, height, width));
 
                                                 break;
                                             }
@@ -125,16 +114,7 @@ namespace kursach
                                                 Console.WriteLine("Введіть назву скульптури: ");
                                                 string name = Console.ReadLine();
 
-
-                                                if (RoomList[0].CanAccommodate(width, length, height))
-                                                {
-                                                    RoomList[0].ExhibitList.Add(new Sculpture(name, author, country, year, width, length, height));
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine("Скульптура не поміщається в кімнату. Спробуйте ще раз.");
-                                                    Console.ReadKey();
-                                                }
+                                                RoomList[0].AddExhibit(new Sculpture(name, author, country, year, width, length, height));
 
                                                 break;
                                             }
@@ -152,17 +132,8 @@ namespace kursach
                                                 Console.WriteLine("Введіть назву археологічного експонату: ");
                                                 string name = Console.ReadLine();
 
-
-
-                                                if (RoomList[0].CanAccommodate(width, length, height))
-                                                {
-                                                    RoomList[0].ExhibitList.Add(new ArchaeologicalExhibit(name, author, country, year, width, length, height));
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine("Археологічний експонат не поміщається в кімнату. Спробуйте ще раз.");
-                                                    Console.ReadKey();
-                                                }
+                                                RoomList[0].AddExhibit(new ArchaeologicalExhibit(name, author, country, year, width, length, height));
+                                              
                                                 break;
                                             }
                                         case 4:
@@ -179,24 +150,15 @@ namespace kursach
                                                 Console.WriteLine("Введіть назву наукового інструменту: ");
                                                 string name = Console.ReadLine();
 
+                                                RoomList[0].AddExhibit(new ScientificInstrument(name, author, country, year, width, length, height));
 
-                                                if (RoomList[0].CanAccommodate(width, length, height))
-                                                {
-                                                    RoomList[0].ExhibitList.Add(new ScientificInstrument(name, author, country, year, width, length, height));
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine("Науковий інструмент не поміщається в кімнату. Спробуйте ще раз.");
-                                                    Console.ReadKey();
-                                                }
                                                 break;
 
 
-                                            }                                        default:
+                                            }
+                                        default:
                                             Console.WriteLine("Експонат успішно додано!");
-                                                Console.ReadLine();
-                                            
-
+                                            Console.ReadLine();
                                             break;
                                     }
                                 }
@@ -208,38 +170,25 @@ namespace kursach
                                 }
                             }
                             break;
-
-
-
-
-
                         }
                     case 3:
                         {
+                            Console.WriteLine("Введіть ширину кімнати (ціле число): ");
+                            int width = int.Parse(Console.ReadLine());
 
+                            Console.WriteLine("Введіть довжину кімнати (ціле число): ");
+                            int length = int.Parse(Console.ReadLine());
 
+                            Console.WriteLine("Введіть висоту кімнати (ціле число): ");
+                            int height = int.Parse(Console.ReadLine());
 
-                            {
-                                Console.WriteLine("Введіть ширину кімнати (ціле число): ");
-                                int width = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Введіть корисну площу стін (ціле число): ");
+                            int usefulWallArea = int.Parse(Console.ReadLine());
 
-                                Console.WriteLine("Введіть довжину кімнати (ціле число): ");
-                                int length = int.Parse(Console.ReadLine());
-
-                                Console.WriteLine("Введіть висоту кімнати (ціле число): ");
-                                int height = int.Parse(Console.ReadLine());
-
-                                Console.WriteLine("Введіть корисну площу стін (ціле число): ");
-                                int usefulWallArea = int.Parse(Console.ReadLine());
-
-                                Room newRoom = new Room(width, length, height, usefulWallArea);
-                                Console.WriteLine("кімната успішно додана!");
-
-                            }
+                            Room newRoom = new Room(width, length, height, usefulWallArea);
+                            Console.WriteLine("кімната успішно додана!");
 
                             break;
-
-
                         }
                     case 4:
                         {
@@ -253,10 +202,7 @@ namespace kursach
                             Console.ReadKey();
                             break;
                         }
-
                 }
-
-
             }
         }
     }

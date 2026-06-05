@@ -9,8 +9,7 @@ public class Room
     private int height;
     private int usefulWallArea;
     private double volume;
-    public List<Exhibit> ExhibitList { get; set; } = new List<Exhibit>();
-
+    private List<Exhibit> exhibitList = new List<Exhibit>();
 
     public Room(int width, int length, int height, int usefulWallArea)
     {
@@ -18,6 +17,7 @@ public class Room
         Length = length;
         Height = height;
         UsefulWallArea = usefulWallArea;
+        volume = width * length * height;
     }
 
     public int Width
@@ -29,53 +29,69 @@ public class Room
             width = value;
         }
     }
-    public int Length { 
+    public int Length
+    {
         get { return length; }
-        set { 
+        set
+        {
             if (value < 0) throw new ArgumentException("Довжина не може бути від'ємною.");
             length = value;
         }
     }
-    public int Height { 
+    public int Height
+    {
         get { return height; }
-        set { 
+        set
+        {
             if (value < 0) throw new ArgumentException("Висота не може бути від'ємною.");
             height = value;
         }
     }
 
-    public int UsefulWallArea { 
+    public int UsefulWallArea
+    {
         get { return usefulWallArea; }
-        set { 
+        set
+        {
             if (value > Width * Height * 2 + Length * Height * 2) throw new ArgumentException("Корисна площа стін не може перевищувати загальну площу стін.");
             usefulWallArea = value;
         }
     }
-    public double Volume
+
+    public List<Exhibit> ExhibitList
     {
-        get { return volume; }
-        set
-        {
-            volume = Width * Length * Height;
-        }
+        get{ return exhibitList; }
     }
+    public double GetVolume()
+    {
+        return (double)Width * Length * Height;
+    }
+    public void AddExhibit(Exhibit exhibit)
+    {
+        if (exhibit is VolumeExhibit ve)
+        {
+            if (!CanAccommodate(ve.Length, ve.Width, ve.Height))
+                throw new InvalidOperationException($"Експонат '{exhibit.Name}' не поміщається в кімнату.");
+        }
+        ExhibitList.Add(exhibit);
+    }
+
 
     public bool CanAccommodate(double L, double W, double H)
     {
         if (volume >= L * W * H
          && (Width >= W) && (Length >= L) && (Height >= H))
         {
-          volume -= L * W * H;
+            volume -= L * W * H;
             return true;
         }
         return false;
     }
-    
+
     public override string ToString()
     {
         return $"Кімната: ширина = {Width}, довжина = {Length}, висота = {Height}, корисна площа стін = {UsefulWallArea}";
-}
-  
+    }
+
 
 }
- 

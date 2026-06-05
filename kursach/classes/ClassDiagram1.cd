@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="kursach.classes.ArchaeologicalExhibit">
+    <Position X="13.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\Archaeological exhibit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kursach.classes.Exhibit">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAABAAAAAAAgAAAAIQAAEIEAAACAAAAAAAAAAA=</HashCode>
+      <FileName>classes\exhibit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kursach.classes.Picture">
+    <Position X="7.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAQEQAAAAEIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\picture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kursach.classes.ScientificInstrument">
+    <Position X="9.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\Scientific instrument.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kursach.classes.Sculpture">
+    <Position X="11.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\sculpture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="kursach.classes.VolumeExhibit">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAQEQEAAAEJAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>classes\volumeexhibit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Room">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABABAAAQAQEQEBAAEBAAAAAAAIAAAICAAACAAA=</HashCode>
+      <FileName>classes\room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
